@@ -1,4 +1,6 @@
-# ***Java Programming Techniques*** (Techniche di Programmazione)
+# ***Java Programming Techniques*** 
+##(Techniche di Programmazione)
+
 The course integrates the skills acquired in former courses, in particular Object Oriented Programming and Data Bases, enabling students to create complete applications with graphical user interfaces and that access relational data bases. 
 <br>
 Algorithms covered in this course:
