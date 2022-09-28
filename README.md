@@ -4,7 +4,7 @@ The course integrates the skills acquired in former courses, in particular Objec
 
 Algorithms covered in this course:
 - Introduction to ***Recursion***
-- Most common ***data structures*** (lists, trees, graphs)
+- Most common ***Data Structures*** (lists, trees, graphs)
 - ***Simulation and Optimization*** algorithms regarding the fields of logistics, production, and enterprise organization (e.g., resource allocation, scheduling, queuing network systems, transports, etc.)
 
 
