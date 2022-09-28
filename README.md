@@ -9,4 +9,4 @@ Algorithms covered in this course:
 - ***Simulation and Optimization*** algorithms regarding the fields of logistics, production, and enterprise organization (e.g., resource allocation, scheduling, queuing network systems, transports, etc.)
 
 <br>
-Course official link: [Tecniche di Programmazione][https://elite.polito.it/teaching/past-courses/534-03fyz-tecn-progr-2020] A.Y. 2019/2020
+Course official link: [Tecniche di Programmazione](https://elite.polito.it/teaching/past-courses/534-03fyz-tecn-progr-2020) A.Y. 2019/2020
