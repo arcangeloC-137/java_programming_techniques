@@ -1,0 +1,83 @@
+INPUT: 
+  -insieme di "Esame" (PARTENZA)
+  -numero crediti(m)
+
+OUTPUT:
+  -Set di "Esame", sottoinsieme di PARTENZA, tale per cui:
+     * Somma esame.crediti == m
+     * Media esame.voto sia MAX
+     
+Primo approccio:
+ Generare i sottoinsiemi di partenza un caso per volta, decidendo
+ esame per esame, se debba o non debba far parte della soluzione.
+ Per ogni esame mi chiedo: lo metto o non lo metto?
+ Il livello della ricorsione L mi indica quale corso sto decidendo
+ di mettere o non mettere. 
+ 
+ Analizzo ogni elemento # dell'insieme (lvl. n)
+        
+        #1 elemento dell'insieme (lvl.0):
+           - lo inserisco --> parziale = {e1}
+             #2 elemento dell'insieme (lvl.1):
+                - lo inserisco --> parziale = {e1, e2}
+                - non lo inserisco --> parziale = {e1}
+           - non lo inserisco --> parziale = { }
+             #2 elemento dell'insieme (lvl.1):
+                - lo inserisco --> parziale = {e2}
+                - non lo inserisco --> parziale = { }
+                
+ *Soluzione parziale == sottoinsieme composto dagli esami tra 0 e (L-1)
+ 
+ *Generazione di un sottoproblema: decidere se inserire esami[L] oppure no. 
+  decicdo se inserire l'esame in posizione L oppure no. Due possibili sottoproblemi:
+  
+    #1 non aggiungo nulla alla sol. parziale
+    #2 soluzione parziale + esami[L]
+  
+ *CASI TERMINALI:
+ Nei casi terminali, prima controllo il numero di crediti. Se questa somma è 
+ maggiore di m, esco dalla ricorsione (return), altrimenti controllo la media. 
+ Se questa è migliore di tutte quelle viste finora, tengo conto della soluzione 
+ parziale.
+ 
+    - L == MAX (non ci sono più corsi da aggiungere)
+      * se parziale.sommaCrediti() == m --> calcolare la media
+          * se parziale.media() > media tutte le altre soluzioni viste
+            fino ad ora, allora dovroò tenere traccia di questa soluzione
+      * se parziale.sommaCrediti() != m --> abbandono la soluzione
+      
+    - Se parziale.sommaCrediti() > m --> mi fermo subito! è inutile continuare
+      ad aggiungere esami.
+      
+    - Se parziale.sommaCrediti() == m --> calcolo subito la media
+          * se parziale.media() > media tutte le altre soluzioni viste
+            fino ad ora, allora dovroò tenere traccia di questa soluzione. 
+            In ogni caso "fermo" la ricorsione.
+           
+           
+Secondo approccio:
+Ad ogni livello aggiungo un corso, devo decidere quale. Ad ogni lvl L la 
+soluzione parziale sarà un sottoinsieme di esattamente L esami. 
+
+ *Generazione di un sotto problema: aggiunta di un sottoesame ad una soluzione
+  parziale. Per tutti i casi possibili (tutti gli esami non ancora compresi nella 
+  soluzione parziale):
+                           Sottoproblema = parziale + esame(i);
+              
+  Al primo lvl di ricorsione, ho N scelte possibili, dove N è la dimensopne di 
+  PARTENZA. Provo tutte le N scelte. 
+  
+  Al lvl 0, abbiamo N sottoproblemi. Supponiamo che PARTENZA = {e1, e2, e3}
+  
+  [L=0] Sottoproblema #1 parziale = {e1}
+       [L=1] parziale = {e1, e2}
+       [L=1] parziale = {e1, e3}
+  [L=0] Sottoproblema #2 parziale = {e2}
+         [L=1] parziale = {e2, e1}
+         [L=1] parziale = {e2, e3}
+  [L=0] Sottoproblema #3 parziale = {e3}
+  
+ *Casi Terminali
+  vedi sopra
+  
+            

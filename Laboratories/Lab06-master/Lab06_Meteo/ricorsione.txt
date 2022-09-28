@@ -1,0 +1,45 @@
+Problema:
+   - Stringa da riconoscere "parola"
+   - Contenuto della board
+   - Posizione della lettera iniziale
+   
+Soluzione parziale:
+   - Parte iniziale della parola (la parte già riconosciuta)
+     Es. cercando Pippo, potrebbe essere "Pi", o "Pipp"
+   - Elenco delle posizioni in cui si trovano le lettere già
+     riconosciute
+     
+Soluzione terminale:
+   - Parola completamente riconosciuta
+   - Posizioni delle lettere nella board
+   
+Livello: 
+   - Numero di caratteri già riconosciuti
+   
+Condizione terminale:
+   - Livello = lunghezza parola
+     (Non mi interessa ottimizzare, la prima soluzione trovata mi 
+      va bene)
+      
+Generazione delle soluzioni:
+   *Trovare tutte le soluzioni che siano:
+    - Adiacenti all'ultima posizione usata
+    - Contenenti la lettera "corretta
+    - Non ancora utilizzare
+    
+ Avvio della ricorsione:
+  (parto da una soluzione parziale già a livello=1, in quanto
+   questo è occupato dalla lettera con cui inizia la parola. E' 
+   infatti inutile cercare dalla posizione (0,0); comincio la 
+   ricorsione se la prima lettera è presente nella griglia, e la 
+   inizio dalla lettera corrispondente)
+   
+  - Livello = 1
+  - Parte da una posizione che contiene la prima lettera della 
+    parola
+
+Strutture dati:
+  - Stringa da riconoscere "parola"
+  - Livello
+  - Lista<pos> percorso, corrispondente alla sequenza di caselle
+   

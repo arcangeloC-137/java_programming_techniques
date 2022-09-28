@@ -1,0 +1,41 @@
+Problema:
+   
+   Selezionare un sottoinsieme di Blackout in X anni 
+   (consecutivi) per un massimo di Y ore di disservizio.
+   MASSIMIZZARE il NUMERO TOTALE DI PERSONE coinvolte
+   
+Soluzione parziale:
+   
+   Lista di blackout 
+
+Soluzione finale:
+   
+   Lista di blackout con il maggior numero di customers_affected
+   
+Livello:
+
+   ore di disservizio
+   
+Condizione di terminazione:
+
+   + (Livello >= Y):
+     Se il livello raggiunge il numero massimo di ore Y impostate dall'utente
+      allora si è trovata una soluzione, che va confrontata con quella precedente.
+   
+   + (Livello < Y && ((ultimo_anno-primo_anno)>X):
+     Le ore di un determinato periodo potrebbero non arrivare mai ad Y, ma essere
+     sempre minori. Si prende come soluzione possibile quando l'anno dell'ultimo blackout
+     e quello del primo, all'interno della soluzione, sono distanti al massimo X anni.
+     
+Generazione delle soluzioni:
+   
+   + Si aggiunge un blackout incrementando il NUMERO_DI_UTENTI, il NUMERO_DI_ORE
+   + Il balckout inserito deve essere distante dal primo inserito al più X anni
+   + Il NUMERO_DI_ORE deve essere sempre minore di Y
+   
+Strutture dati:
+   
+   + Lista di blackout
+   + Livello, corrispondente al NUMERO_DI_ORE
+
+   
